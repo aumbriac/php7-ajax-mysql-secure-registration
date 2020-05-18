@@ -1,4 +1,4 @@
-# Fully Secure Single Page Application(SAP) Boilerplate
+# Fully Secure Single Page Application (SAP) Boilerplate
 Component based secure login application created with PHP, JavaScript, jQuery, Ajax, MySQL, and Materialize
 
 # Quickstart
