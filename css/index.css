@@ -1,0 +1,204 @@
+@media (min-width: 768px) {
+ .card {
+  padding-top: 0 !important;
+  width: 50% !important;
+  margin-top: 2rem;
+  padding-bottom: 2.5rem !important;
+ }
+}
+@media (max-width: 768px) {
+ .card {
+  width: 100% !important;
+  height: 100% !important;
+  margin-top: 2rem;
+  padding-top: 0 !important;
+  padding-bottom: 2.5rem !important;
+ }
+}
+
+.card,
+.card-reveal {
+ overflow: hidden !important;
+}
+
+.text-shadow {
+ text-shadow: 1px 1px 10px #000;
+}
+
+.activator {
+ cursor: pointer;
+ font-size: 1.5rem;
+ transition: 2s;
+}
+
+.activator:hover {
+ color: rgba(100, 100, 100, 0.5);
+ transition: 2s;
+}
+
+.silver-hover {
+ transition: 2s;
+ transform: rotate(-90deg);
+}
+
+.silver-hover:hover {
+ color: rgba(100, 100, 100, 0.5);
+ transform: rotate(0deg);
+
+ transition: 0.5s;
+}
+
+.input-field {
+ margin: 0.5rem;
+}
+
+nav {
+ font-family: 'Pathway Gothic One', sans-serif;
+}
+
+.message {
+ font-weight: 300;
+ margin-top: 0.125rem;
+ margin-right: auto;
+}
+
+svg {
+ width: 2rem;
+ display: flex;
+ margin: auto;
+}
+.path {
+ stroke-dasharray: 1000;
+ stroke-dashoffset: 0;
+}
+.path.circle {
+ -webkit-animation: dash 0.9s ease-in-out;
+ animation: dash 0.9s ease-in-out;
+}
+.path.line {
+ stroke-dashoffset: 1000;
+ -webkit-animation: dash 0.9s 0.35s ease-in-out forwards;
+ animation: dash 0.9s 0.35s ease-in-out forwards;
+}
+.path.check {
+ stroke-dashoffset: -100;
+ -webkit-animation: dash-check 0.9s 0.35s ease-in-out forwards;
+ animation: dash-check 0.9s 0.35s ease-in-out forwards;
+}
+.success {
+ color: #36a300;
+}
+.error {
+ color: #ff0000;
+}
+@-webkit-keyframes dash {
+ 0% {
+  stroke-dashoffset: 1000;
+ }
+ 100% {
+  stroke-dashoffset: 0;
+ }
+}
+@keyframes dash {
+ 0% {
+  stroke-dashoffset: 1000;
+ }
+ 100% {
+  stroke-dashoffset: 0;
+ }
+}
+@-webkit-keyframes dash-check {
+ 0% {
+  stroke-dashoffset: -100;
+ }
+ 100% {
+  stroke-dashoffset: 900;
+ }
+}
+@keyframes dash-check {
+ 0% {
+  stroke-dashoffset: -100;
+ }
+ 100% {
+  stroke-dashoffset: 900;
+ }
+}
+
+#snackbar {
+ visibility: hidden;
+ min-width: 250px;
+ margin-left: -125px;
+ background-color: #000;
+ color: #fff;
+ text-align: center;
+ border-radius: 0.25rem;
+ padding: 16px;
+ position: fixed;
+ z-index: 1;
+ left: 50%;
+ bottom: 30px;
+ font-size: 17px;
+}
+
+#snackbar.show {
+ visibility: visible;
+ -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+ animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+ from {
+  bottom: 0;
+  opacity: 0;
+ }
+ to {
+  bottom: 30px;
+  opacity: 1;
+ }
+}
+
+@keyframes fadein {
+ from {
+  bottom: 0;
+  opacity: 0;
+ }
+ to {
+  bottom: 30px;
+  opacity: 1;
+ }
+}
+
+@-webkit-keyframes fadeout {
+ from {
+  bottom: 30px;
+  opacity: 1;
+ }
+ to {
+  bottom: 0;
+  opacity: 0;
+ }
+}
+
+@keyframes fadeout {
+ from {
+  bottom: 30px;
+  opacity: 1;
+ }
+ to {
+  bottom: 0;
+  opacity: 0;
+ }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+/* @font-face {
+ font-family: Anurati;
+ font-weight: bold;
+ src: url('Anurati-Regular.otf') format('opentype');
+} */
