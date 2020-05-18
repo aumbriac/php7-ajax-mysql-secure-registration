@@ -1,5 +1,5 @@
 # Fully Secure Single Page Application (SAP) Boilerplate
-Component based secure login application created with PHP, JavaScript, jQuery, Ajax, MySQL, and Materialize<br />
+100% component based (no router, no static pages) secure login application with created with PHP, JavaScript, jQuery, Ajax, MySQL, and Materialize. App includes form validation, token generation, and automatic auth validation.<br />
 Live example: https://anthonyumbriac.com/secure/
 
 # Quickstart
