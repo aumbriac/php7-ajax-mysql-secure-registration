@@ -12,7 +12,7 @@ if (isset($_POST['login'])) {
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     $password = $row['password'];
     $token = hash("sha256", uniqid());
-    if (password_verify($passwordAttempt, $password) && $row['token'] === NULL) {
+    if (password_verify($passwordAttempt, $password)) {
         $sql = "UPDATE tbl_users SET token = :token, token_timestamp = NOW(), last_login = NOW() WHERE email = :email";
         $statement = $connect->prepare($sql);
         $statement->bindValue(':token', $token);
