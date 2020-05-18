@@ -24,10 +24,10 @@ if (isset($_POST['login_check'])) {
 
 if (isset($_POST['reauthenticate'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
-    // $ipInfo = file_get_contents('http://ip-api.com/json/' . $ip);
-    // $ipInfo = json_decode($ipInfo);
-    // $timezone = $ipInfo->timezone;
-    date_default_timezone_set('America/Los_Angeles');
+    $ipInfo = file_get_contents('http://ip-api.com/json/' . $ip);
+    $ipInfo = json_decode($ipInfo);
+    $timezone = $ipInfo->timezone;
+    date_default_timezone_set($timezone);
     $sql = "UPDATE tbl_users SET token_timestamp = NOW() WHERE email = :email";
     $statement = $connect->prepare($sql);
     $statement->bindValue(':email', $_SESSION['email']);
