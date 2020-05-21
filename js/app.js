@@ -1,13 +1,3 @@
-if (
- /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  navigator.userAgent
- )
-) {
- $('.mobile-col').removeClass('s10');
- $('.mobile-col').removeClass('offset-s3');
- $('.mobile-col').addClass('s12');
-}
-
 // Register
 
 $('#register_form').submit(function (event) {
@@ -35,6 +25,7 @@ $('#register_form').submit(function (event) {
        <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
      </svg> <span class="message">Email Unavailable</span></div>`;
     $('#email').val('');
+    $('#email-validation').attr('data-error', 'Please enter another email');
     $('#email').focus().blur().focus();
     setTimeout(function () {
      snackbar.className = snackbar.className.replace('show', '');
@@ -125,6 +116,9 @@ $('#login_form').submit(function (event) {
    email: email,
    password: password,
   },
+  beforeSend: function () {
+   $('button').css('disabled', 'ture');
+  },
   success: function (res) {
    if (res === 'success') {
     var snackbar = document.getElementById('snackbar');
@@ -163,21 +157,29 @@ $('#login_form').submit(function (event) {
 
 // Logout
 
-$('#logout').click(function () {
+function logout() {
  $.ajax({
   url: './actions/logout.php',
   method: 'POST',
   data: {
-   logout: 1,
+   logout: true,
   },
   success: function () {
    location.reload();
   },
  });
-});
+}
 
 // Autocomplete background color fix
 
 $("input[type='text']").bind('focus', function () {
  $(this).css('background-color', 'white');
+});
+
+$('#activator').on('click', function () {
+ $('.card').css('height', '30rem');
+});
+
+$('#deactivator').on('click', function () {
+ $('.card').css('height', 'max-content');
 });
