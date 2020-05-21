@@ -9,50 +9,59 @@ setInterval(() => {
   },
   success: function (res) {
    if (res === 'invalid') {
-    location.reload();
+    logout();
    } else if (res === 'valid') {
     console.log('Authorization verified');
    }
   },
+  error: function (res) {
+   alert(res);
+  },
  });
 }, 10000);
 
-// REAUTHENTICATION
+// AUTHENTICATION
 
-$(document).on('keypress readystatechange click focus', function () {
+$(document).ready(function () {
  $.ajax({
   url: './auth/auth.php',
   method: 'POST',
   data: {
-   reauthenticate: true,
+   authenticate: true,
   },
   success: function (res) {
    if (res === 'valid') {
-    $.get('./auth/fetch.php', function (data) {
+    $.get('./auth/get_token_timestamp.php', function (data) {
      $('#token-expiration').html(data);
+     $('.toast').hide();
+     M.toast({ html: 'Token expiration: ' + data });
     });
+   } else {
+    console.log(res);
    }
   },
  });
 });
 
-// Reauthorization
+// REAUTHENTICATION
 
-// $(document).on('keypress scroll click focus', function () {
-//     $.ajax({
-//      url: '../auth/auth.php',
-//      method: 'POST',
-//      data: {
-//       reauthenticate: true,
-//      },
-//      success: function (data) {
-//       M.toast({ html: 'Token expiration updated' });
-//       setTimeout(() => {
-//        $('#token-expiration').html(data);
-//       }, 100);
-//       setTimeout(() => {
-//        M.Toast.dismissAll();
-//       }, 1000);
-//      },
-//     });
-//    });
+$(document).on('click focus', function () {
+ $.ajax({
+  url: './auth/auth.php',
+  method: 'POST',
+  data: {
+   authenticate: true,
+  },
+  success: function (res) {
+   if (res === 'valid') {
+    $.get('./auth/get_token_timestamp.php', function (data) {
+     $('#token-expiration').html(data);
+     $('.toast').hide();
+     M.toast({ html: 'Token expiration: ' + data });
+    });
+   } else {
+    console.log(res);
+   }
+  },
+ });
+});
