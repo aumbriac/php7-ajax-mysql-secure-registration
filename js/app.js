@@ -117,7 +117,7 @@ $('#login_form').submit(function (event) {
    password: password,
   },
   beforeSend: function () {
-   $('button').css('disabled', 'ture');
+   $('.btn').attr('disabled', 'true');
   },
   success: function (res) {
    if (res === 'success') {
